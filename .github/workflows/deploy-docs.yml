@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout . . .
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node.js . . .
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with: 
           node-version: 16
 
-      - name: Installing dependencies . . .
+      - name: Installing dependencies
         run: npm ci
 
-      - name: Building Storybook . . .
+      - name: Building Storybook
         run: npm run build-storybook
 
-      - name: Deploying Storybook to GitHub Pages . . .
+      - name: Deploying Storybook to GitHub Pages
         run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
