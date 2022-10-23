@@ -8,7 +8,7 @@ export default {
   args: {
     children: [
       <TextInput.Icon><Envelope /></TextInput.Icon>,
-      <TextInput.Input placeholder="Digite seu email"></TextInput.Input>
+      <TextInput.Input placeholder="Digite seu email"></TextInput.Input>,
     ],
   },
   argTypes: {
@@ -17,7 +17,14 @@ export default {
         type: null,
       }
     }
-  }
+  },
+  decorators: [
+    (Story) => (
+      <div className='w-60'>
+        {Story()}
+      </div>
+    )
+  ]
 
 } as Meta<TextInputRootProps>
 
